@@ -34,19 +34,19 @@ function render(variables = {}) {
 
   document.querySelector("#widget_content").innerHTML = totalHtml;
 
-  if (variables.name == null) totalHtml += `<h1>Jonh `;
+  if (variables.name == null) totalHtml += `<h1>your name `;
   else totalHtml += `<h1>${variables.name} `;
 
-  if (variables.lastname == null) totalHtml += ` Doe</h1>`;
+  if (variables.lastname == null) totalHtml += ` your lastname</h1>`;
   else totalHtml += ` ${variables.lastname}</h1>`;
 
-  if (variables.role == null) totalHtml += `<h2>Mrs/Mr nobody</h2>`;
+  if (variables.role == null) totalHtml += `<h2>your role</h2>`;
   else totalHtml += `<h2>${variables.role}</h2>`;
 
-  if (variables.city == null) totalHtml += `<h3>tomorrow `;
+  if (variables.city == null) totalHtml += `<h3>city `;
   else totalHtml += `<h3>${variables.city} `;
 
-  if (variables.country == null) totalHtml += ` land</h3>`;
+  if (variables.country == null) totalHtml += ` country</h3>`;
   else totalHtml += ` ${variables.country}</h3>`;
 
   totalHtml += `<ul class="${variables.socialMediaPosition}"> 
