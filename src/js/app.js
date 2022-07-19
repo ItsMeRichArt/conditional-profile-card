@@ -30,20 +30,34 @@ function render(variables = {}) {
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
   // reset the website body with the new html output
-  document.querySelector("#widget_content").innerHTML = `<div class="widget">
-            ${cover}
-          <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+  let totalHtml = `<div class="widget">${cover}<img src="${variables.avatarURL}" class="photo" />`;
+
+  document.querySelector("#widget_content").innerHTML = totalHtml;
+
+  if (variables.name == null) totalHtml += `<h1>Jonh `;
+  else totalHtml += `<h1>${variables.name} `;
+
+  if (variables.lastname == null) totalHtml += ` Doe</h1>`;
+  else totalHtml += ` ${variables.lastname}</h1>`;
+
+  if (variables.role == null) totalHtml += `<h2>Mrs/Mr nobody</h2>`;
+  else totalHtml += `<h2>${variables.role}</h2>`;
+
+  if (variables.city == null) totalHtml += `<h3>tomorrow `;
+  else totalHtml += `<h3>${variables.city} `;
+
+  if (variables.country == null) totalHtml += ` land</h3>`;
+  else totalHtml += ` ${variables.country}</h3>`;
+
+  totalHtml += `<ul class="${variables.socialMediaPosition}"> 
+            <li><a href="${variables.twitter}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="${variables.github}"><i class="fab fa-github"></i></a></li>
+            <li><a href="${variables.linkedin}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="${variables.instagram}"><i class="fab fa-instagram"></i></a></li>
           </ul>
-        </div>
-    `;
+        </div>`;
+
+  document.querySelector("#widget_content").innerHTML = totalHtml;
 }
 
 /**
